@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun createDB() {    //DB생성
+    private fun createDB() {    //DB생성
         dbHelper = DBHelper(this@MainActivity, "Jin.db", null, 1)
         val db: SQLiteDatabase = dbHelper.writableDatabase
         dbHelper.onCreate(db)
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         setInit()
     }
 
-    fun setInit() {
+    private fun setInit() {
         loadTodoDB()
 
         binding.fbPlus.setOnClickListener {
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun loadTodoDB() {
+    private fun loadTodoDB() {
         todoItems = dbHelper.selectTodo()
         todoAdapter = TodoListAdapter(todoItems, dbHelper)
         binding.rvTodo.setHasFixedSize(true)
